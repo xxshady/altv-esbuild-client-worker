@@ -10,6 +10,6 @@
     "isolatedModules": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
-    "typeRoots": ["./node_modules/@altv"],
+    "typeRoots": ["./node_modules/@altv", "./node_modules/@types"],
   },
 }

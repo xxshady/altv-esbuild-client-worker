@@ -1,5 +1,6 @@
 // src/main.ts
 import * as esbuild from "esbuild";
+import path from "path";
 var pluginName = "altv-client-worker";
 var consoleBlueColor = "\x1B[34m";
 var consoleResetColor = "\x1B[0m";
@@ -40,13 +41,25 @@ var altvClientWorker = ({ extraWorkerEsbuildOptions } = {}) => {
       if (!outdir) {
         throw new Error(`[${pluginName}] esbuild config must include outdir`);
       }
-      build2.onLoad({ filter: /\.worker\.(js|ts)$/ }, async ({ path: workerPath }) => {
+      build2.onResolve({ filter: /^worker!|\.worker\.(js|ts)$/ }, ({ path: workerPath, resolveDir }) => {
+        const realPath = workerPath.replace(/^worker!/, "");
+        const fullPath = path.resolve(resolveDir, realPath);
+        return {
+          path: fullPath,
+          namespace: pluginName
+        };
+      });
+      build2.onLoad({ filter: /.*/, namespace: pluginName }, async ({ path: workerPath }) => {
+        log("workerPath:", workerPath);
+        if (!/\.js$/.test(workerPath)) {
+          workerPath += ".js";
+        }
         const workerFileName = await buildWorker(workerPath, outdir, extraWorkerEsbuildOptions);
         return {
           contents: `
-              import { Worker } from 'alt-client';
-              export default new Worker('./${workerFileName}');
-            `
+            import { Worker } from 'alt-client';
+            export default new Worker('./${workerFileName}');
+          `
         };
       });
     }

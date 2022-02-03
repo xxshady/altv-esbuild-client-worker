@@ -1,4 +1,5 @@
 import * as esbuild from "esbuild"
+import path from "path"
 import type { IAltvClientWorkerOptions } from "./types"
 
 const pluginName = "altv-client-worker"
@@ -62,19 +63,32 @@ export const altvClientWorker = ({ extraWorkerEsbuildOptions }: IAltvClientWorke
         throw new Error(`[${pluginName}] esbuild config must include outdir`)
       }
 
-      build.onLoad(
-        { filter: /\.worker\.(js|ts)$/ },
-        async ({ path: workerPath }) => {
-          const workerFileName = await buildWorker(workerPath, outdir, extraWorkerEsbuildOptions)
+      build.onResolve({ filter: /^worker!|\.worker\.(js|ts)$/ }, ({ path: workerPath, resolveDir }) => {
+        const realPath = workerPath.replace(/^worker!/, "")
+        const fullPath = path.resolve(resolveDir, realPath)
 
-          return {
-            contents: (`
-              import { Worker } from 'alt-client';
-              export default new Worker('./${workerFileName}');
-            `),
-          }
-        },
-      )
+        return {
+          path: fullPath,
+          namespace: pluginName,
+        }
+      })
+
+      build.onLoad({ filter: /.*/, namespace: pluginName }, async ({ path: workerPath }) => {
+        log("workerPath:", workerPath)
+
+        if (!(/\.js$/.test(workerPath))) {
+          workerPath += ".js"
+        }
+
+        const workerFileName = await buildWorker(workerPath, outdir, extraWorkerEsbuildOptions)
+
+        return {
+          contents: (`
+            import { Worker } from 'alt-client';
+            export default new Worker('./${workerFileName}');
+          `),
+        }
+      })
     },
   }
 }

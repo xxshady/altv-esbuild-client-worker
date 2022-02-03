@@ -6,5 +6,6 @@ esbuild.build({
   outfile: 'dist/main.js',
   target: 'esnext',
   format: 'esm',
+  platform: 'node',
   external: ['esbuild']
 })
