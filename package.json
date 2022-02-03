@@ -4,6 +4,9 @@
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "type": "module",
+  "files": [
+    "dist/**/*"
+  ],
   "license": "MIT",
   "scripts": {
     "dev": "node --es-module-specifier-resolution=node build.js -dev",
