@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "esnext",    
+    "module": "esnext",  
+    "outDir": "./dist",
+    "moduleResolution": "node",
+    "rootDir": ".",
+    "allowJs": true,
+    "typeRoots": [
+      "./node_modules/@altv",
+    ],
+  },
+  "include": [
+    "./src/**/*",
+    "worker-typing.d.ts",
+  ]
+}

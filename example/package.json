@@ -1,0 +1,16 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@altv/types-client": "^2.0.7",
+    "@altv/types-worker": "^1.0.4",
+    "altv-esbuild-client-worker": "^0.1.0",
+    "esbuild": "^0.14.18"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "node --es-module-specifier-resolution=node build.js"
+  }
+}
