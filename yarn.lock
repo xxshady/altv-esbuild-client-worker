@@ -2,6 +2,16 @@
 # yarn lockfile v1
 
 
+"@altv/types-client@^2.0.8":
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/@altv/types-client/-/types-client-2.0.8.tgz#fc3b35f35ba84362b8ea69b6c27b356a00a881f1"
+  integrity sha512-aL1lmp0saiJlm4UDfpwkKeOyOXn8nT/U4eaJzDA7q5SIG1Hz91Yp1qzTm27+kSDYwiQtGCy0J8x60zVbpxdwTA==
+
+"@altv/types-shared@^1.1.8":
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/@altv/types-shared/-/types-shared-1.1.8.tgz#1a37660cba11de7310348833f886db67ddf95ecd"
+  integrity sha512-a3T/UwAT4M6z2XGi/lzWDJGH/2wFSIHmRdSdY3dBbjEJrsFe7anLLn3YI/FfeXtdkFYfV2efXVh+Ipyem/RdVg==
+
 "@babel/code-frame@7.12.11":
   version "7.12.11"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.12.11.tgz#f4ad435aa263db935b8f10f2c552d23fb716a63f"

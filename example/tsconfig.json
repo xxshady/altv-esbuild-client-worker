@@ -8,6 +8,6 @@
   },
   "include": [
     "./src/**/*",
-    "worker-typing.d.ts",
+    "../altv-esbuild-client-worker.d.ts",
   ]
 }

@@ -1,3 +1,4 @@
+// as you can see there is typing here, you can get the same by simply copying altv-esbuild-client-worker.d.ts into your project
 import worker from 'worker!./example.worker'
 // can also be imported as:
 // (but then in this case you will not have typing (autocomplete))
