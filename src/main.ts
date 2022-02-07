@@ -87,6 +87,7 @@ export const altvClientWorker = ({ extraWorkerEsbuildOptions }: IAltvClientWorke
             import { Worker } from 'alt-client';
             export default new Worker('./${workerFileName}');
           `),
+          resolveDir: path.dirname(workerPath),
         }
       })
     },

@@ -59,7 +59,8 @@ var altvClientWorker = ({ extraWorkerEsbuildOptions } = {}) => {
           contents: `
             import { Worker } from 'alt-client';
             export default new Worker('./${workerFileName}');
-          `
+          `,
+          resolveDir: path.dirname(workerPath)
         };
       });
     }
