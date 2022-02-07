@@ -1,6 +1,6 @@
 {
   "name": "altv-esbuild-client-worker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "type": "module",
@@ -30,8 +30,8 @@
     "typescript": "^4.4.3"
   },
   "peerDependencies": {
-    "esbuild": "0.x",
     "@altv/types-client": "2.x",
-    "@altv/types-shared": "1.x"
+    "@altv/types-shared": "1.x",
+    "esbuild": "0.x"
   }
 }
