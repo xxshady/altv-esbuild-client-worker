@@ -1,6 +1,6 @@
 # altv-esbuild-client-worker
 
-A plugin that allows you to import [alt:V](https://altv.mp) clientside workers like regular JS/TS modules. See [example](/example/src/main.js)
+A plugin that allows you to import [alt:V](https://altv.mp) [clientside workers](https://docs.altv.mp/js/articles/workers.html) like regular JS/TS modules. See [example](/example/src/main.js)
 
 ## Installation
 
