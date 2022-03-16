@@ -15,8 +15,8 @@
     "publ": "yarn build && yarn types && yarn publish"
   },
   "devDependencies": {
-    "@altv/types-client": "^2.0.8",
-    "@altv/types-shared": "^1.1.8",
+    "@altv/types-client": "^2.1.1",
+    "@altv/types-shared": "^1.2.1",
     "@types/node": "^17.0.14",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
@@ -30,8 +30,8 @@
     "typescript": "^4.4.3"
   },
   "peerDependencies": {
-    "@altv/types-client": "2.x",
-    "@altv/types-shared": "1.x",
+    "@altv/types-client": ">=2.x",
+    "@altv/types-shared": ">=1.x",
     "esbuild": "0.x"
   }
 }
